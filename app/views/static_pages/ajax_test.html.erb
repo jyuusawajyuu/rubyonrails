@@ -1,0 +1,36 @@
+<html>
+<head>
+<script type = "text/javascript">
+function loadXMLDoc()
+{
+  var xmlhttp,xmlDoc,filepath;
+  var txt,x,i;
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function()
+  {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+    {
+      xmlDoc = xmlhttp.responseXML;
+      txt = "";
+      x = xmlDoc.getElementsByTagName("title");
+      for (i = 0;i < x.length;i++)
+      {
+        txt = txt + x[i].childNodes[0].nodeValue + "<br />";
+      }
+      document.getElementById("myDiv").innerHTML = txt;
+    }
+  };
+  filepath = document.getElementById("filepath").value;
+  xmlhttp.open("GET",filepath,true);
+  xmlhttp.send();
+}
+</script>
+</head>
+
+<body>
+<input type="text" id="filepath"/>
+<div id="myDiv"></div>
+<button type="button" onclick="loadXMLDoc()">view file content</button>
+ 
+</body>
+</html>

@@ -8,7 +8,8 @@ class StaticPagesControllerTest < ActionController::TestCase
   test "should get home" do
     get :home
     assert_response :success
-    assert_select "title","home | #{@base_title}"
+    assert_select "title","Ruby on Rails Tutorial Sample"
+    assert_select "a[href=?]",signup_path
   end
 
   test "should get help" do
@@ -21,5 +22,11 @@ class StaticPagesControllerTest < ActionController::TestCase
     get :about
     assert_response :success
     assert_select "title","about | #{@base_title}"
+  end
+  
+  test "should get contact" do
+    get :contact
+    assert_response :success
+    assert_select "title","contact | #{@base_title}"
   end
 end
