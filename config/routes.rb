@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
+  get 'viewers/result'
+
   resources :users
+  
+  resources :viewers
   
   get 'users/new'
 
@@ -13,6 +17,8 @@ Rails.application.routes.draw do
   get 'contact' => "static_pages#contact"
   
   get 'signup' => "users#new"
+  
+  get 'viewfile' => "viewers#result"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
