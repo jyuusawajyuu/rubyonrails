@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   
+
   get 'viewers/result'
 
   resources :users
   
   resources :viewers
-  
-  get 'users/new'
 
   root 'static_pages#home'
 
@@ -19,6 +18,14 @@ Rails.application.routes.draw do
   get 'signup' => "users#new"
   
   get 'viewfile' => "viewers#result"
+  
+  get 'login' => "sessions#new"
+  
+  post 'login' => "sessions#create"
+  
+  delete 'logout' => "sessions#destroy"
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

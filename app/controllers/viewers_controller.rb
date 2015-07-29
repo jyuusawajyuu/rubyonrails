@@ -11,6 +11,7 @@ class ViewersController < ApplicationController
       @content = f.sysread(s)
       render 'show'
     else
+      flash.now[:danger] = '没这个文件，别乱写！'
       render "result"
     end
   end
