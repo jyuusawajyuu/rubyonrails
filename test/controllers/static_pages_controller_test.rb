@@ -2,13 +2,13 @@ require 'test_helper'
 
 class StaticPagesControllerTest < ActionController::TestCase
   def setup
-    @base_title = "Ruby on Rails Tutorial Sample"
+    @base_title = "mini cube"
   end
   
   test "should get home" do
     get :home
     assert_response :success
-    assert_select "title","Ruby on Rails Tutorial Sample"
+    assert_select "title","mini cube"
     assert_select "a[href=?]",signup_path
   end
 
